@@ -1,0 +1,50 @@
+{
+  "name": "version-attribute",
+  "version": "1.0.0",
+  "description": "Returns the value of an object attribute that matches a given version.",
+  "main": "lib/versionAttribute.js",
+  "scripts": {
+    "test": "istanbul cover --print both nodeunit ./ test",
+    "lint": "eslint .",
+    "coverage": "istanbul check-coverage --statements 100 --lines 100 --branches 100 --functions 100",
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thebruce/version-attribute.git"
+  },
+  "keywords": [
+    "version",
+    "attribute"
+  ],
+  "author": "David Diers <david.diers@gmail.com> (http://daviddiers.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thebruce/version-attribute/issues"
+  },
+  "homepage": "https://github.com/thebruce/version-attribute#readme",
+  "devDependencies": {
+    "eslint": "^3.3.1",
+    "eslint-find-rules": "^1.13.0",
+    "eslint-plugin-import": "^1.13.0",
+    "eslint-config-airbnb-base": "^5.0.2",
+    "ghooks": "^1.0.1",
+    "istanbul": "^0.4.2",
+    "nodeunit": "^0.9.1",
+    "npm-run-all": "^2.3.0"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm test"
+    }
+  },
+  "dependencies": {
+    "callsite": "^1.0.0",
+    "lodash": "^4.16.4",
+    "version-comparison": "^1.0.3"
+  },
+  "engines": {
+    "node": ">=6"
+  }
+}
