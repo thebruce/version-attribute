@@ -2,7 +2,6 @@
   "name": "version-attribute",
   "description": "Node package to help traverse and retrieve version keys and their properties (ex: 1.0.1) in an object.",
   "main": "lib/versionAttribute.js",
-  "version": "1.0.0",
   "scripts": {
     "test": "istanbul cover --print both nodeunit ./ test",
     "lint": "eslint .",
