@@ -4,69 +4,69 @@ const versionAttribute = require('../lib/versionAttribute');
 
 const versionedSuperObject = {
   1: {
-    members: ['iron man', 'thor', 'hulk', 'ant man', 'the wasp'],
+    members: ['iron buddy', 'thorskaar', 'hulksta', 'aunt man', 'queen wasp'],
     0: {
-      members: ['iron man', 'thor', 'hulk', 'ant man', 'the wasp'],
+      members: ['iron buddy', 'thorskaar', 'hulksta', 'aunt man', 'queen wasp'],
       1: {
-        members: ['iron man', 'thor', 'hulk', 'ant man', 'the wasp', 'captain america']
+        members: ['iron buddy', 'thorskaar', 'hulksta', 'aunt man', 'queen wasp', 'mr america']
       }
     }
   },
   2: {
     0: {
       members: [
-        'iron man',
-        'thor',
-        'hulk',
-        'ant man',
-        'the wasp',
-        'captain america',
-        'hawkeye',
-        'quicksilver',
-        'scarlet witch'
+        'iron buddy',
+        'thorskaar',
+        'hulksta',
+        'aunt man',
+        'queen wasp',
+        'mr america',
+        'hork aye',
+        'quik sliver',
+        'red witch'
       ],
       1: {
         members: [
-          'iron man',
-          'thor',
-          'hulk',
-          'ant man',
-          'the wasp',
-          'captain america',
-          'hawkeye',
-          'quicksilver',
-          'scarlet witch',
-          'the swordsman'
+          'iron buddy',
+          'thorskaar',
+          'hulksta',
+          'aunt man',
+          'queen wasp',
+          'mr america',
+          'hork aye',
+          'quik sliver',
+          'red witch',
+          'the sword'
         ],
       }
     }
   },
   3: {
     0: {
-      otherProperty: 'Ultron hiding',
+      otherProperty: 'Altrom hiding',
       0: {
         members: [
-          'iron man',
-          'thor',
-          'hulk',
-          'ant man',
-          'the wasp',
-          'captain america',
-          'hawkeye',
-          'quicksilver',
-          'scarlet witch',
-          'hercules'
+          'iron buddy',
+          'thorskaar',
+          'hulksta',
+          'aunt man',
+          'queen wasp',
+          'mr america',
+          'hork aye',
+          'quik sliver',
+          'red witch',
+          'herc'
         ]
       },
       1: {
-        otherProperty: 'Dr. Doom hiding',
+        otherProperty: 'Dr. Dom hiding',
         1: {}
       }
     },
     1: {
       1: {
         1: {
-          otherProperty: 'The Leader hiding'
+          otherProperty: 'The Leider hiding'
         }
       }
     }
@@ -284,7 +284,7 @@ module.exports = {
     // Empty version returns error.
     test.deepEqual(
       versionedAttribute([1, 0, 1], versionedSuperObject, 'members'),
-      ['iron man', 'thor', 'hulk', 'ant man', 'the wasp', 'captain america'],
+      ['iron buddy', 'thorskaar', 'hulksta', 'aunt man', 'queen wasp', 'mr america'],
       'Existing paths should return the same path'
     );
     test.done();
