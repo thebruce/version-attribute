@@ -74,19 +74,19 @@ var versionObject = {
 var versionObject = {
   1: {
     1: {
-       members: ['silver'], // Members is silver in 1.1
+       members: ['silver'], // Members: silver in 1.1
        1: {
-         members: ['bronze']  // Members is bronze in 1.1.1
+         members: ['bronze']  // Members: bronze in 1.1.1
        }
     },
     2: {
-      otherProperty: ['gold']  // Other Property is gold in 1.2, Members is bronze hierarchically.
+      otherProperty: ['gold']  // Other Property: gold, Members: bronze hierarchically.
     }
   },
   2: {
-    members: ['silver', 'bronze'] // Members is silver and bronze in 2, Other Property is gold in 1.2 hierarchically.
+    members: ['silver', 'bronze'] // Members: silver,bronze, Other Property: gold in 1.2 hierarchically.
     1: {
-      yetOtherProperty: ['tin'] // yetOtherProperty is tin, Members is silver and bronze in 2, and Other Property is gold in 1.2 hierarchically.
+      yetOtherProperty: ['tin'] // yetOtherProperty: tin, members: silver,bronze, and otherProperty: is gold hierarchically.
     }
   }
 }
@@ -96,7 +96,8 @@ var testPath;
 
 // We can understand more about what version properties are in the object in the first place.
 
-// Use getVersion to see if we have a version at or below the version (1.1.1) we provide in this object.
+// Use getVersion to see if we have a version at or below the version (1.1.1)
+// we provide in this object.
 testPath = versionAttribute.getVersion([1, 1, 1], versionObject);
 // testPath is [1,1,1] because that version exists in the object.
 
@@ -104,28 +105,35 @@ testPath = versionAttribute.getVersion([1, 1, 1], versionObject);
 testPath = testPath = versionAttribute.getVersion([1, 1, 2], versionObject);
 // testPath is [1,1,1] because 1,1,2 doesn't exist but [1,1,1] is a lower version hierarcally.
 
-// When getVersion can not get an object at the passed path, it will go up a sibling or parent.
-// Once it goes up that sibling or parent it descends down that branch as far as it can so that
+// When getVersion can not get an object at the passed path, it will go up a sibling
+// or parent. Once it goes up that sibling or parent it descends down that branch as
+// far as it can so that
 // you get the next highest adjacent version.
 testPath = testPath = versionAttribute.getVersion([3], versionObject);
-// testPath is [2,1] because [3] doesn't exist so it goes up a parent to [2] and then down to the lowest child [2,1]
+// testPath is [2,1] because [3] doesn't exist so it goes up a parent to [2] and then
+// down to the lowest child [2,1]
 
 // You might just want the next lowest version from a version.
-// For that we can use getPreviousClosestVersion.  This behaves in a similar way to getVersion but only returns
+// For that we can use getPreviousClosestVersion.  This behaves in a similar way \
+// to getVersion but only returns
 // version properties below the passed version property.
 
 // Get a version path below the given path in the object.
 testPath = versionAttribute.getPreviousClosestVersion([1,2], versionedObject);
 // testPath is [1,1,1] because it is the next adjacent version.
 
-// Finally we can learn some information about the properties of the version properties like members and otherProperty in the example above.
+// Finally we can learn some information about the properties of the version properties
+// like members and otherProperty in the example above.
 
-// We can learn where the highest occurence of a give property exists given the object and a starting path.
-// The versions we get back conform to the behavior of getVersion above and always return the first occurence of a property at or adjacently above the version we specify.
-// Get the highest position of an attribute at the path or below in version, returns [1,1,1]
+// We can learn where the highest occurence of a give property exists given the object
+// and a starting path. The versions we get back conform to the behavior of getVersion
+// above and always return the first occurence of a property at or adjacently above the
+// version we specify. Get the highest position of an attribute at the path or below in
+// version, returns [1,1,1]
 testPath = versionAttribute.getVersionHasTarget([2], versionObject, 'members');
-// testPath is [1,1,1] because not finding the members property in version 2, we ascended a parent and then deeply descended and continued
-// looking until we found members at version [1,1,1]
+// testPath is [1,1,1] because not finding the members property in version 2, we ascended
+// a parent and then deeply descended and continued looking until we found members at
+// version [1,1,1]
 
 // We can also request that property directly.
 // Get the attribute returns [bronze]
