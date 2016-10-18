@@ -8,9 +8,9 @@ accept any number of additional sub-patches, minor-version, or major-versions as
 
 Given an object with version number properties and an array corresponding to a path [{major},{minor},{patch}] you can:
 * Determine if the path exists in the object.
-* Get the next decrement of the version at its deepest path if the passed path does not exist.
-* Test for the existence of properties at or below a version number.
-* Get the property at its first occurence at or below the passed version number.
+* Get the adjacent version number of a key in the object. (ex: you provide 1.0.1 you get back 1.0.0 - provided both of those keys exist)
+* Test for the existence of properties at or below a version number (ex: do i have a property of member at 1.0.1.member in an object?).
+* Get the property at its first occurence at or below the passed version number. (ex: returns the value of the first occurence of the property member starting at version 1.0.1 traversing adjacent lower version numbers)
 
 ## Example
 
