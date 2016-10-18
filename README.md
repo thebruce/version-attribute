@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/thebruce/version-attribute.svg?branch=master)](https://travis-ci.org/thebruce/version-require)
+[![Build Status](https://travis-ci.org/thebruce/version-attribute.svg?branch=master)](https://travis-ci.org/thebruce/version-attribute)
 [![Coverage Status](https://coveralls.io/repos/thebruce/version-attribute/badge.svg?branch=master&service=github)](https://coveralls.io/github/thebruce/version-attribute?branch=master)
 
 # Version Attribute
