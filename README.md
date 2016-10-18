@@ -84,7 +84,7 @@ var versionObject = {
     }
   },
   2: {
-    members: ['silver', 'bronze'] // Members: silver,bronze, Other Property: gold in 1.2 hierarchically.
+    members: ['silver', 'bronze'], // Members: silver,bronze, Other Property: gold in 1.2 hierarchically.
     1: {
       yetOtherProperty: ['tin'] // yetOtherProperty: tin, members: silver,bronze, and otherProperty: is gold hierarchically.
     }
