@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/thebruce/version-attribute.svg?branch=master)](https://travis-ci.org/thebruce/version-require)
+[![Coverage Status](https://coveralls.io/repos/thebruce/version-attribute/badge.svg?branch=master&service=github)](https://coveralls.io/github/thebruce/version-attribute?branch=master)
+
 # Version Attribute
 
 This module allows you to access an object literal attribute for a particular version number and if that attribute

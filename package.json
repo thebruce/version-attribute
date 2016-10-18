@@ -1,7 +1,7 @@
 {
   "name": "version-attribute",
   "version": "1.0.0",
-  "description": "Returns the value of an object attribute that matches a given version.",
+  "description": "Node package to help traverse and retrieve version keys and their properties (ex: 1.0.1) in an object.",
   "main": "lib/versionAttribute.js",
   "scripts": {
     "test": "istanbul cover --print both nodeunit ./ test",
@@ -15,7 +15,8 @@
   },
   "keywords": [
     "version",
-    "attribute"
+    "attribute",
+    "traversal"
   ],
   "author": "David Diers <david.diers@gmail.com> (http://daviddiers.com/)",
   "license": "MIT",
