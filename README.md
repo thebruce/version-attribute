@@ -5,7 +5,7 @@
 # Version Attribute
 
 This module assists with identifying object attributes that correspond to versioning naming schemes {major}.{minor}.{patch} ex: 1.0.1. It will
-accept any number of additional sub-patches, minor-version, or major-versions as long as new branch depths are consistent and demarcated with a ".". Ex: You can traverse an object with properties like 3.1.1.1 for instance.
+accept any number of additional sub-patches, minor-version, or major-versions as long as new branch depths are consistent and demarcated with a ".". Ex: You can traverse an object with properties like 3.1.1.1 for instance, not just 3.1.1.
 
 Given an object with version number properties and an array corresponding to a path [{major},{minor},{patch}] you can:
 * Determine if the path exists in the object.
