@@ -158,15 +158,15 @@ module.exports = {
     test.expect(3);
     // Empty version returns error.
     test.throws(() => {
-      versionedAttribute.resolve('', 'members', versionedSuperObject);
+      versionedAttribute.resolve([], versionedSuperObject, 'members');
     }, 'Invalid path did not raise exception.');
     // Invalid version returns error.
     test.throws(() => {
-      versionedAttribute.resolve('a.4', 'members', versionedSuperObject);
+      versionedAttribute.resolve(['a', 4], versionedSuperObject, 'members');
     }, 'Invalid path did not raise exception.');
     // Invalid object returns error.
     test.throws(() => {
-      versionedAttribute.resolve('1.0', 'members', {});
+      versionedAttribute.resolve([1, 0], {}, 'members');
     }, 'Empty object did not raise exception.');
     // Existing version path returns expected path
     test.done();
