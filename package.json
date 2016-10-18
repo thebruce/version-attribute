@@ -1,17 +1,17 @@
 {
   "name": "version-attribute",
-  "version": "1.0.0",
   "description": "Node package to help traverse and retrieve version keys and their properties (ex: 1.0.1) in an object.",
   "main": "lib/versionAttribute.js",
   "scripts": {
     "test": "istanbul cover --print both nodeunit ./ test",
     "lint": "eslint .",
     "coverage": "istanbul check-coverage --statements 95 --lines 95 --branches 95 --functions 100",
-    "coveralls": "cat ./coverage/lcov.info | coveralls"
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thebruce/version-attribute.git"
+    "url": "https://github.com/thebruce/version-attribute.git"
   },
   "keywords": [
     "version",
@@ -32,7 +32,8 @@
     "ghooks": "^1.0.1",
     "istanbul": "^0.4.2",
     "nodeunit": "^0.9.1",
-    "npm-run-all": "^2.3.0"
+    "npm-run-all": "^2.3.0",
+    "semantic-release": "^4.3.5"
   },
   "config": {
     "ghooks": {
