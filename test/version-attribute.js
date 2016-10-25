@@ -173,12 +173,17 @@ module.exports = {
   },
   getPreviousClosestVersion: function getPreviousClosestVersionTest(test) {
     const versionedAttribute = versionAttribute();
-    test.expect(5);
+    test.expect(6);
     // Empty version returns error.
     test.deepEqual(
       versionedAttribute.getPreviousClosestVersion([1, 0, 1], versionedSuperObject),
       [1, 0],
       'Base paths should go down a level'
+    );
+    test.deepEqual(
+      versionedAttribute.getPreviousClosestVersion([2, 0], versionedSuperObject),
+      [1, 0, 1],
+      'Base paths should go up and then down to get next closest.'
     );
     // Empty version returns error.
     test.deepEqual(
