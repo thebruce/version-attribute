@@ -1,6 +1,6 @@
 'use strict';
 
-const versionAttribute = require('../lib/versionAttribute');
+const VersionAttribute = require('../lib/versionAttribute');
 
 const versionedSuperObject = {
   1: {
@@ -73,9 +73,10 @@ const versionedSuperObject = {
   }
 };
 
+const versionedAttribute = new VersionAttribute([3, 1], versionedSuperObject);
+
 module.exports = {
   descendPath: function descendPathTest(test) {
-    const versionedAttribute = versionAttribute();
     test.expect(5);
     test.deepEqual(
       versionedAttribute.descendPath([3, 1], versionedSuperObject),
@@ -107,7 +108,6 @@ module.exports = {
     test.done();
   },
   ascendPath: function ascendPathTest(test) {
-    const versionedAttribute = versionAttribute();
     test.expect(8);
     test.deepEqual(
       versionedAttribute.ascendPath([3, 0, 1], versionedSuperObject),
@@ -119,7 +119,6 @@ module.exports = {
       [3, 0],
       'Sub paths of the target should return true.'
     );
-
     test.deepEqual(
       versionedAttribute.ascendPath([3, 0, 0], versionedSuperObject),
       [3, 0],
@@ -154,25 +153,35 @@ module.exports = {
     test.done();
   },
   invalidParams: function invalidParamsTest(test) {
-    const versionedAttribute = versionAttribute();
     test.expect(3);
     // Empty version returns error.
     test.throws(() => {
-      versionedAttribute.resolve([], versionedSuperObject, 'members');
+      Object.create(VersionAttribute, {
+        pathCrumbs: [],
+        tree: versionedSuperObject,
+        target: 'members'}
+      );
     }, 'Invalid path did not raise exception.');
     // Invalid version returns error.
     test.throws(() => {
-      versionedAttribute.resolve(['a', 4], versionedSuperObject, 'members');
+      Object.create(VersionAttribute, {
+        pathCrumbs: ['a', 4],
+        tree: versionedSuperObject,
+        target: 'members'}
+      );
     }, 'Invalid path did not raise exception.');
     // Invalid object returns error.
     test.throws(() => {
-      versionedAttribute.resolve([1, 0], {}, 'members');
+      Object.create(VersionAttribute, {
+        pathCrumbs: [1, 0],
+        tree: {},
+        target: 'members'}
+      );
     }, 'Empty object did not raise exception.');
     // Existing version path returns expected path
     test.done();
   },
   getPreviousClosestVersion: function getPreviousClosestVersionTest(test) {
-    const versionedAttribute = versionAttribute();
     test.expect(6);
     // Empty version returns error.
     test.deepEqual(
@@ -191,19 +200,16 @@ module.exports = {
       [3, 1, 1],
       'Deeply nested paths should traverse upward until they find a matching property.'
     );
-
     test.deepEqual(
       versionedAttribute.getPreviousClosestVersion([1], versionedSuperObject),
       [],
       'No property at any path on or above should return empty.'
     );
-
     test.deepEqual(
       versionedAttribute.getPreviousClosestVersion([2, 0, 17], versionedSuperObject),
       [2, 0, 1],
       'Non Existant sibling returns correct sibling.'
     );
-
     test.deepEqual(
      versionedAttribute.getPreviousClosestVersion([4], versionedSuperObject),
       [3, 1, 1, 1],
@@ -212,7 +218,6 @@ module.exports = {
     test.done();
   },
   getVersionHasTarget: function getVersionHasTargetTest(test) {
-    const versionedAttribute = versionAttribute();
     test.expect(5);
     // Empty version returns error.
     test.deepEqual(
@@ -249,7 +254,6 @@ module.exports = {
     test.done();
   },
   getVersion: function getVersionTest(test) {
-    const versionedAttribute = versionAttribute();
     test.expect(5);
     // Empty version returns error.
     test.deepEqual(
@@ -284,11 +288,10 @@ module.exports = {
     test.done();
   },
   versionAttribute: function versionAttributeTest(test) {
-    const versionedAttribute = versionAttribute();
     test.expect(1);
     // Empty version returns error.
     test.deepEqual(
-      versionedAttribute([1, 0, 1], versionedSuperObject, 'members'),
+      versionedAttribute.getVersionAttribute([1, 0, 1], versionedSuperObject, 'members'),
       ['iron buddy', 'thorskaar', 'hulksta', 'aunt man', 'queen wasp', 'mr america'],
       'Existing paths should return the same path'
     );
