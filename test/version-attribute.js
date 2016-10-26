@@ -225,33 +225,34 @@ module.exports = {
   },
   getVersionHasTarget: function getVersionHasTargetTest(test) {
     test.expect(5);
-    // Empty version returns error.
+
+    versionedAttribute = new VersionAttribute([1, 0, 1], versionedSuperObject, 'members');
     test.deepEqual(
-      versionedAttribute.getVersionHasTarget([1, 0, 1], versionedSuperObject, 'members'),
+      versionedAttribute.getVersionHasTarget([1, 0, 1]),
       [1, 0, 1],
       'Base paths should go down a level'
     );
 
-    // Empty version returns error.
+    versionedAttribute = new VersionAttribute([3, 1, 1, 1], versionedSuperObject, 'members');
     test.deepEqual(
-      versionedAttribute.getVersionHasTarget([3, 1, 1, 1], versionedSuperObject, 'members'),
+      versionedAttribute.getVersionHasTarget([3, 1, 1, 1]),
       [3, 0, 0],
       'Deeply nested paths should traverse upward until they find a matching property.'
     );
 
-    // Empty version returns error.
+    versionedAttribute = new VersionAttribute([1, 0, 1], versionedSuperObject, 'otherProperty');
     test.deepEqual(
       versionedAttribute.getVersionHasTarget([1, 0, 1], versionedSuperObject, 'otherProperty'),
       [],
       'No property at any path on or above should return empty.'
     );
-
+    versionedAttribute = new VersionAttribute([3], versionedSuperObject, 'members');
     test.deepEqual(
       versionedAttribute.getVersionHasTarget([3], versionedSuperObject, 'members'),
       [2, 0, 1],
       'No property at any path on or above should return empty.'
     );
-
+    versionedAttribute = new VersionAttribute([2, 0, 17], versionedSuperObject, 'members');
     test.deepEqual(
       versionedAttribute.getVersionHasTarget([2, 0, 17], versionedSuperObject, 'members'),
       [2, 0, 1],
