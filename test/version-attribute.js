@@ -262,31 +262,31 @@ module.exports = {
   },
   getVersion: function getVersionTest(test) {
     test.expect(5);
-    // Empty version returns error.
+    versionedAttribute = new VersionAttribute([1, 0, 1], versionedSuperObject);
     test.deepEqual(
-      versionedAttribute.getVersion([1, 0, 1], versionedSuperObject),
+      versionedAttribute.getVersion([1, 0, 1]),
       [1, 0, 1],
       'Existing paths should return the same path'
     );
-    // Empty version returns error.
+    versionedAttribute = new VersionAttribute([3, 1, 1, 1], versionedSuperObject);
     test.deepEqual(
       versionedAttribute.getVersion([3, 1, 1, 1], versionedSuperObject),
       [3, 1, 1, 1],
       'Deeply nested paths should return the same path.'
     );
-
+    versionedAttribute = new VersionAttribute([0], versionedSuperObject);
     test.deepEqual(
       versionedAttribute.getVersion([0], versionedSuperObject),
       [],
       'No property at any path on or above should return empty.'
     );
-
+    versionedAttribute = new VersionAttribute([2, 0, 17], versionedSuperObject);
     test.deepEqual(
       versionedAttribute.getVersion([2, 0, 17], versionedSuperObject),
       [2, 0, 1],
       'Non Existant sibling returns correct sibling.'
     );
-
+    versionedAttribute = new VersionAttribute([4], versionedSuperObject);
     test.deepEqual(
      versionedAttribute.getVersion([4], versionedSuperObject),
       [3, 1, 1, 1],
@@ -296,7 +296,7 @@ module.exports = {
   },
   versionAttribute: function versionAttributeTest(test) {
     test.expect(1);
-    // Empty version returns error.
+    versionedAttribute = new VersionAttribute([1, 0, 1], versionedSuperObject, 'members');
     test.deepEqual(
       versionedAttribute.getVersionAttribute([1, 0, 1], versionedSuperObject, 'members'),
       ['iron buddy', 'thorskaar', 'hulksta', 'aunt man', 'queen wasp', 'mr america'],
