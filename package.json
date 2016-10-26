@@ -3,7 +3,7 @@
   "description": "Node package to help traverse and retrieve version keys and their properties (ex: 1.0.1) in an object.",
   "main": "lib/versionAttribute.js",
   "scripts": {
-    "test": "istanbul cover --print both nodeunit ./ test",
+    "test": "istanbul cover --print both nodeunit ./test",
     "lint": "eslint .",
     "coverage": "istanbul check-coverage --statements 95 --lines 95 --branches 95 --functions 100",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
