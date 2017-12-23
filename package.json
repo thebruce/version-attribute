@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/thebruce/version-attribute#readme",
   "devDependencies": {
-    "eslint": "^3.3.1",
+    "eslint": "^4.14.0",
     "eslint-find-rules": "^1.13.0",
     "eslint-plugin-import": "^2.0.1",
     "eslint-config-airbnb-base": "^11.1.3",
