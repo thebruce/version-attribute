@@ -33,7 +33,7 @@
     "istanbul": "^0.4.2",
     "nodeunit": "^0.11.1",
     "npm-run-all": "^4.0.2",
-    "semantic-release": "^6.3.6"
+    "semantic-release": "^15.1.3"
   },
   "config": {
     "ghooks": {
